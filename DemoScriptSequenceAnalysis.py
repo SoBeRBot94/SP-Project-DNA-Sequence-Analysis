@@ -57,17 +57,18 @@ geneMutation = []
 geneLength = []
 
 for base in range(0, len(geneA)):
-    mutationCount = sq.swapMutation(geneA[base], geneB[base])
+    mutationCount = sq.swapMutations(geneA[base], geneB[base])
     geneMutation.append(mutationCount)
     geneCount = sq.dnaBases(geneA[base])
     geneLength.append(geneCount)
+
 
 plt.style.use(['ggplot','dark_background'])
 plt.figure(0,figsize = (19,9))
 plt.title("Gene Length Histogram")
 plt.xlabel("Gene", fontsize = "15")
 plt.ylabel("Gene Length", fontsize = "15")
-plt.bar(range(len(geneLength), geneLength))
+plt.bar(range(len(geneLength)), geneLength)
 plt.savefig("GeneLengthHistogram.png")
 plt.show()
 
