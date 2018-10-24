@@ -53,9 +53,10 @@ class Sequence:
 
     def sequenceToGenes(self):
         signal = "AAAAAAAAAATTTTTTTTTT"
-        findGenes = self.dna.split(signal.lower())
-        genes = [Sequence(gene) for gene in findGenes]
-        return(genes)
+        dnaSequence = str(self.dna)
+        findGenes = dnaSequence.split(signal.lower())
+        findGenes = [Sequence(gene) for gene in findGenes]
+        return(findGenes)
 
     def swapMutations(self, new):
         sequenceA = self.dna
@@ -83,5 +84,5 @@ def readGenomeData(file):
         sequenceLine = ''.join(sequenceLines[1:])
 
         DNAsequence = Sequence(sequenceLine)
-        sequenceLength = Sequence.dnaBases(sequenceLine)
-        return(sequenceLength)
+        sequenceLength = Sequence.dnaBases(DNAsequence)
+        return(DNAsequence)
